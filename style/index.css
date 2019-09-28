@@ -1,0 +1,79 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+#outer {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.bg {
+  background: 0 0 url(./assets/images/bg-1.jpg);
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bg::after {
+  bottom: 0;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.main {
+  color: #fff;
+  display: flex;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -80%);
+  flex-direction: column;
+  text-shadow: 5px 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.title {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.timer {
+  align-items: center;
+  display: flex;
+  text-shadow: 5px 1px 10px rgba(0, 0, 0, 0.8);
+}
+
+.motto {
+  color: #ccc;
+  text-align: center;
+  height: 70px;
+  font-size: 2rem;
+}
+
+.timer>div {
+  margin: 0 5px;
+  word-break: keep-all;
+}
+.number.days {
+  font-size: 3rem;
+}
+.number.hours{
+  font-size: 2rem;
+}
+.number.minutes {
+  font-size: 1.5rem;
+}
+.number.millinumber {
+  font-size: 0.8px;
+}
+
