@@ -20,7 +20,18 @@ function mian() {
   var seconds = $('#secnds');
   var milliseconds = $('#milliseconds');
 
+  registeServiceWorker();
   refresh();
+}
+
+function registeServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      console.info('service worker registed');
+    });
+  } else {
+    console.warn('serviceWorker is not supported');
+  }
 }
 
 function refresh() {

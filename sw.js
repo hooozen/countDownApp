@@ -1,5 +1,10 @@
 var VERSION = 'v1';
 
+var images = [];
+for (var i = 0; i < 28; i++) {
+  images.push('./style/assets/images/bg-' + i + '.jpg');
+}
+
 // 缓存
 self.addEventListener('install', event => {
   event.waitUntil(
@@ -7,7 +12,8 @@ self.addEventListener('install', event => {
       return cache.addAll([
         './index.html',
         './script/main.js',
-      ]);
+        './style/index.css',
+      ].concat(images));
     })
   );
 });
@@ -34,6 +40,7 @@ self.addEventListener('fetch', event => {
     caches.open(VERSION).then(cache => {
       return cache.match(event.request).then(response => {
         const fetchPromise = fetch(event.request).then(networkResponse => {
+          if (event.request.url.indexOf('http') !== 0) return;
           cache.put(event.request, networkResponse.clone());
           return networkResponse;
         });
